@@ -1,0 +1,18 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  height: 100vh;
+}
+
+#root, .container, .row {
+  height: 100%;
+}
+
+a {
+  display: inline-block;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+}
