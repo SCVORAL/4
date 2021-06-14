@@ -8,8 +8,8 @@
     "server": "nodemon app.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-prebuild": "node app.js",
-    "heroku-postbuild" : "react-scripts build"
+    "heroku-prebuild": "react-scripts build",
+    "heroku-postbuild" : "node app.js"
   },
   "keywords": [
     "mern",
