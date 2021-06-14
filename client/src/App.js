@@ -8,22 +8,16 @@ import 'bootstrap'
 function App() {
   const {token, login, logout, userId} = useAuth()
   const [checked, setChecked] = useState([])
+  const [users, setUsers] = useState([])
   const isAuthenticated = !!token
   const routes = useRoutes(isAuthenticated)
 
-  const handleClick = () => {
-    console.log(checked)
-    setChecked([])
-    console.log(checked)
-  }
-
   return (
     <AuthContext.Provider value={{
-      token, login, logout, userId, isAuthenticated, checked, setChecked
+      token, login, logout, userId, isAuthenticated, checked, setChecked, users, setUsers
     }}>
-      <button onClick={handleClick}>dfxfdgh</button>
       <Router>
-        <div className='container' a={console.log('rerendered app')}>
+        <div className='container'>
           {routes}
         </div>
       </Router>

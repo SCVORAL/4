@@ -1,5 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react'
 import {useHttp} from './../hooks/http.hook'
+import {NavLink} from 'react-router-dom'
 import {useMessage} from './../hooks/message.hook'
 import {AuthContext} from './../context/AuthContext'
 
@@ -27,8 +28,8 @@ export const SignUp = () => {
   const registerHandler = async () => {
     try {
       const data = await request('api/auth/register', 'POST', {...form})
-      message(data.message)
       auth.login(data.token, data.userId)
+      alert(data.message)
     } catch (e) {}
   } 
 
@@ -70,6 +71,7 @@ export const SignUp = () => {
         >
           Register
         </button>
+        <NavLink className="btn btn-primary ms-3" to="/">Back to Login</NavLink>
       </div>
     </div>
   )

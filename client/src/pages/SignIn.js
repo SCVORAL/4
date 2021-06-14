@@ -27,7 +27,11 @@ export const SignIn = () => {
   const loginHandler = async () => {
     try {
       const data = await request('api/auth/login', 'POST', {...form})
-      auth.login(data.token, data.userId)
+      if(data.userStatus) {
+        auth.login(data.token, data.userId)
+      } else {
+        alert('Пользователь заблокирован')
+      }
     } catch (e) {}
   } 
 

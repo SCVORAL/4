@@ -4,8 +4,7 @@ import UsersList from './../components/UsersList'
 import axios from 'axios'
 
 export const ListPage = () => {
-  const [users, setUsers] = useState([])
-  const {checked} = useContext(AuthContext)
+  const {checked, users, setUsers} = useContext(AuthContext)
 
 
   const fetchUsers = async () => {
@@ -13,16 +12,13 @@ export const ListPage = () => {
     setUsers(response.data)
   }
 
-  // setInterval(fetchUsers(), 4000)
-
   useEffect (() => {
     fetchUsers()
-    console.log(checked)
-  }, [checked])
+  }, [users])
 
   return(
     <>
-      <UsersList links={users} a={console.log('rerendered listPage')}/>
+      <UsersList links={users}/>
     </>
   )
 }

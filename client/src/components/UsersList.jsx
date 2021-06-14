@@ -6,24 +6,31 @@ import axios from 'axios'
 const UsersList = ({ links }) => {
   const {checked, setChecked} = useContext(AuthContext)
 
+
+  let arr = checked
   const handelChangeCheckBox = (id) => {
-    const listChecked = checked
-    if (listChecked.length === 0){
-      listChecked.push(id)
+    let arrLoc = []
+    let count = 0
+
+    if( arr.length === 0){
+      arrLoc.push(id)
     } else {
-      listChecked.map((idMap, i) => {
-        if(idMap === id){
-          listChecked.splice(i, 1)
-        } else {
-          listChecked.push(id)
+      for(let i = 0; i < arr.length; i++) {
+        if (arr[i] !== id){
+          arrLoc.push(arr[i])
+          count++
         }
-      })
+      }
+      if(arr.length === count)
+        arrLoc.push(id)
     }
-    setChecked(listChecked)
+
+    arr = arrLoc
+    setChecked(arrLoc)
   }
 
   return (
-    <table className="table" a={console.log('rerendered UsersList')}>
+    <table className="table">
       <thead>
         <tr>
           <th scope="col"><input type="checkbox" /></th>
