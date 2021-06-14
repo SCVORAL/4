@@ -5,7 +5,9 @@ const mongoose = require('mongoose')
 
 const app = express()
 
-app.use(express.json({ extended: true }))
+// app.use(express.json({ extended: true }))
+
+app.use(express.static(`${__dirname}/client/build`))
 
 app.use('/api/auth', require('./routes/auth.routers'))
 app.use('/api/users', require('./routes/users.routers'))
