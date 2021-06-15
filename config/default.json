@@ -1,5 +1,5 @@
 {
-  "port": "https://task42021.herokuapp.com/",
+  "port": 5000,
   "mongoUri": "mongodb+srv://SCVORAL:scvoral890@cluster0.bso02.mongodb.net/app?retryWrites=true&w=majority",
   "jwtSecret": "task4"
 }
